@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class CountryConfiguration {
+public class TestConfiguration {
 
 	@Bean
 	public Jaxb2Marshaller marshaller() {
@@ -18,7 +18,7 @@ public class CountryConfiguration {
 	}
 
 	@Bean
-	public TestClient countryClient(Jaxb2Marshaller marshaller) {
+	public TestClient testClient(Jaxb2Marshaller marshaller) {
 		TestClient client = new TestClient();
 		client.setDefaultUri("http://ptp.psychometrics.com/ws1");
 		client.setMarshaller(marshaller);

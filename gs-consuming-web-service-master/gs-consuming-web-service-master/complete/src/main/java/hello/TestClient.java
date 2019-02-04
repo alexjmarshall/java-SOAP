@@ -29,9 +29,7 @@ public class TestClient extends WebServiceGatewaySupport {
 		log.info("Requesting test id: " + testId.toString());
 
 		GetTestDetailsResponse response = (GetTestDetailsResponse) getWebServiceTemplate()
-				.marshalSendAndReceive("http://ptp.psychometrics.com/ws1/psyws.wsdl", request,
-				new SoapActionCallback(
-					"http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+				.marshalSendAndReceive("http://ptp.psychometrics.com/ws1/psyws.wsdl", request);
 		return response;
 	}
 
