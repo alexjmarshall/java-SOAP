@@ -23,11 +23,12 @@ public class Application {
 			if (args.length > 0) {
 				testId = Integer.parseInt(args[0]);
 			}
+
 			GetTestDetailsResponse response = quoteClient.getTestDetails(testId);
-			Long message;
-			message = response.getTest().getTestParts().get(0).getItemPool().getPoolItems().stream().filter(q -> q.getScales().stream().filter(s -> s.getScaleName().Equals("Leadership Potential"));
-			System.err.println(message.toString());
+
+			response.getTest().getTestParts().get(0).getItemPool()
+			.getPoolItems().stream().filter(q -> q.getScales().stream().filter(s -> s.getScaleName().equalsIgnoreCase("Leadership Potential")).count() > 0)
+			.forEach(i -> i.getItemText().forEach(t -> System.err.println(t.getStemText())));
 		};
 	}
-
 }
