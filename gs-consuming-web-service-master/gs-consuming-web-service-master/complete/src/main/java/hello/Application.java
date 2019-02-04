@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import hello.wsdl.GetCountryResponse;
+import hello.wsdl.GetTestDetailsResponse;
 
 @SpringBootApplication
 public class Application {
@@ -16,15 +16,15 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner lookup(CountryClient quoteClient) {
+	CommandLineRunner lookup(TestClient quoteClient) {
 		return args -> {
-			String country = "United Kingdom";
+			Integer testId = 1;
 
 			if (args.length > 0) {
-				country = args[0];
+				testId = Integer.parseInt(args[0]);
 			}
-			GetCountryResponse response = quoteClient.getCountry(country);
-			System.err.println(response.getCountry().getCurrency());
+			GetTestDetailsResponse response = quoteClient.getTestDetails(testId);
+			System.err.println(response.getTest().getTestName());
 		};
 	}
 

@@ -18,9 +18,9 @@ public class CountryConfiguration {
 	}
 
 	@Bean
-	public CountryClient countryClient(Jaxb2Marshaller marshaller) {
-		CountryClient client = new CountryClient();
-		client.setDefaultUri("http://localhost:8080/ws");
+	public TestClient countryClient(Jaxb2Marshaller marshaller) {
+		TestClient client = new TestClient();
+		client.setDefaultUri("http://ptp.psychometrics.com/ws1");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
 		return client;
